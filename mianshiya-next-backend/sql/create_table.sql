@@ -95,3 +95,29 @@ create table if not exists mock_interview
     isDelete       tinyint  default 0                 not null comment '是否删除（逻辑删除）',
     index idx_userId (userId)
 ) comment '模拟面试' collate = utf8mb4_unicode_ci;
+
+
+CREATE TABLE comment (
+       id             bigint auto_increment comment 'id' primary key,
+    question_id BIGINT NOT NULL COMMENT '关联的问题ID',
+    user_id BIGINT NOT NULL COMMENT '评论用户ID',
+    content TEXT NOT NULL COMMENT '评论内容',
+    reply_comment_id BIGINT COMMENT '回复的评论ID',
+    reply_user_id BIGINT COMMENT '回复的用户ID',
+    reply_user_name VARCHAR(100) COMMENT '回复的用户名',
+    create_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    INDEX idx_question_id (question_id),
+    INDEX idx_user_id (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='评论表';
+
+
+CREATE TABLE comment_like (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    comment_id BIGINT NOT NULL COMMENT '评论ID',
+    user_id BIGINT NOT NULL COMMENT '点赞用户ID',
+    is_like TINYINT(1) NOT NULL DEFAULT 1 COMMENT '1点赞 0取消',
+    create_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    update_time DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    UNIQUE KEY uk_comment_user (comment_id, user_id),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='评论点赞表';

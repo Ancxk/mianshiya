@@ -806,7 +806,39 @@ declare namespace API {
     id?: number;
     userAvatar?: string;
     userName?: string;
-    userProfile?: string;
-    userRole?: string;
   };
+
+  type CommentAddRequest = {
+    questionId: number;
+    content: string;
+    uid?: number;
+    name?: string;
+    parentId?: number;
+    replyCommentId?: number;
+    replyUserId?: number;
+    replyUserName ?: string;
+  };
+  type BaseResponseListCommentVO = {
+    code?: number;
+    data?: CommentVO[];
+    message?: string;
+  }
+
+  type CommentVO = {
+    id: number;
+    content: string;
+    createTime?: string;
+    user?: UserCommentVO;
+    replyUserName?: string;
+    replyUserId?: number;
+    replyCommentId?: number;
+    likeCount?: number;  // 新增点赞数量
+    dislikeCount?: number; // 新增点踩数量
+  }
+
+  type UserCommentVO  = {
+    uid?: number;
+    name?: string;
+    avatar?: string;
+  }
 }

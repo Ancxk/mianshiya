@@ -2,6 +2,7 @@
 import { message } from "antd";
 import { getQuestionVoByIdUsingGet } from "@/api/questionController";
 import QuestionCard from "@/components/QuestionCard";
+import CommentsSection from "@/components/CommentsSection";
 import "./index.css";
 
 /**
@@ -29,6 +30,7 @@ export default async function QuestionPage({ params }) {
   return (
     <div id="questionPage">
       <QuestionCard question={question} />
+      <CommentsSection questionId={questionId} />
     </div>
   );
 }

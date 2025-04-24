@@ -13,6 +13,8 @@ import * as questionBankController from './questionBankController';
 import * as questionBankQuestionController from './questionBankQuestionController';
 import * as testSaTokenLoginController from './testSaTokenLoginController';
 import * as userController from './userController';
+import * as commentController from './commentController';  // 新增这一行
+
 export default {
   wxMpController,
   fileController,
@@ -25,4 +27,5 @@ export default {
   questionBankQuestionController,
   testSaTokenLoginController,
   userController,
+  commentController,  // 新增这一行
 };
