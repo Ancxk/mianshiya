@@ -16,15 +16,15 @@ export const menus = [
     path: "/questions",
     name: "题目",
   },
-  {
-    path: "/mockInterview/add",
-    name: "AI 模拟面试",
-  },
-  {
-    name: "面试鸭",
-    path: "https://mianshiya.com",
-    target: "_blank",
-  },
+  // {
+  //   path: "/mockInterview/add",
+  //   name: "AI 模拟面试",
+  // },
+  // {
+  //   name: "面试鸭",
+  //   path: "https://mianshiya.com",
+  //   target: "_blank",
+  // },
   {
     path: "/admin",
     name: "管理",
