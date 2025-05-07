@@ -13,22 +13,17 @@ CREATE TABLE `comment` (
   KEY `idx_user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='评论表';
 
-
-CREATE TABLE `comment` (
-  `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `question_id` bigint NOT NULL COMMENT '关联的问题ID',
-  `user_id` bigint NOT NULL COMMENT '评论用户ID',
-  `content` text NOT NULL COMMENT '评论内容',
-  `reply_comment_id` bigint DEFAULT NULL COMMENT '回复的评论ID',
-  `reply_user_id` bigint DEFAULT NULL COMMENT '回复的用户ID',
-  `reply_user_name` varchar(100) DEFAULT NULL COMMENT '回复的用户名',
+CREATE TABLE `comment_like` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `comment_id` bigint NOT NULL COMMENT '评论ID',
+  `user_id` bigint NOT NULL COMMENT '点赞用户ID',
+  `is_like` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1点赞 0取消',
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
-  KEY `idx_question_id` (`question_id`),
-  KEY `idx_user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='评论表';
-
+  UNIQUE KEY `uk_comment_user` (`comment_id`,`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='评论点赞表';
 
 CREATE TABLE `mock_interview` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'id',
