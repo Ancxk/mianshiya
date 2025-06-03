@@ -51,15 +51,26 @@ export default async function BankPage({ params }) {
           description={
             <>
               <Paragraph type="secondary">{bank.description}</Paragraph>
-              <Button
-                type="primary"
-                shape="round"
-                href={`/bank/${questionBankId}/question/${firstQuestionId}`}
-                target="_blank"
-                disabled={!firstQuestionId}
-              >
-                开始刷题
-              </Button>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Button
+                  type="primary"
+                  shape="round"
+                  href={`/bank/${questionBankId}/question/${firstQuestionId}`}
+                  target="_blank"
+                  disabled={!firstQuestionId}
+                >
+                  开始刷题
+                </Button>
+                <Button
+                  type="default"
+                  shape="round"
+                  href={`/quiz?questionBankId=${questionBankId}`}
+                  target="_blank"
+                >
+                  选择题练习
+                </Button>
+        
+              </div>
             </>
           }
         />

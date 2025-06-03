@@ -16,6 +16,10 @@ export const menus = [
     path: "/questions",
     name: "题目",
   },
+  {
+    path: "/quiz",
+    name: "测评练习",
+  },
   // {
   //   path: "/mockInterview/add",
   //   name: "AI 模拟面试",
@@ -31,6 +35,7 @@ export const menus = [
     icon: <CrownOutlined />,
     access: ACCESS_ENUM.ADMIN,
     children: [
+  
       {
         path: "/admin/user",
         name: "用户管理",
@@ -46,6 +51,11 @@ export const menus = [
         name: "题目管理",
         access: ACCESS_ENUM.ADMIN,
       },
+      {
+        path: "/admin/choiceQuestion",
+        name: "选择题管理",
+        access: ACCESS_ENUM.ADMIN,
+      }
     ],
   },
 ] as MenuDataItem[];

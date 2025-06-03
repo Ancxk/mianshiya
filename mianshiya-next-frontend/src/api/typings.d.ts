@@ -1,4 +1,59 @@
+// 添加以下类型定义
+
 declare namespace API {
+  type ChoiceQuestion = {
+    id?: number;
+    questionTitle?: string;
+    choiceOption?: string | ChoiceOption;
+    answerOption?: string;
+    answer?: string;
+    questionBankId?: number;
+    createTime?: string;
+    updateTime?: string;
+  };
+
+  type ChoiceQuestionAddRequest = {
+    questionTitle?: string;
+    choiceOption?: string;
+    answerOption?: string;
+    answer?: string;
+    questionBankId?: number;
+  };
+
+  type ChoiceQuestionUpdateRequest = {
+    id?: number;
+    questionTitle?: string;
+    choiceOption?: string;
+    answerOption?: string;
+    answer?: string;
+    questionBankId?: number;
+  };
+
+  type ChoiceQuestionQueryRequest = {
+    current?: number;
+    pageSize?: number;
+    sortField?: string;
+    sortOrder?: string;
+    questionTitle?: string;
+    answerOption?: string;
+    questionBankId?: number;
+  };
+
+  type BaseResponsePageChoiceQuestion_ = {
+    code?: number;
+    data?: PageChoiceQuestion_;
+    message?: string;
+  };
+
+  type PageChoiceQuestion_ = {
+    records?: ChoiceQuestion[];
+    total?: number;
+    size?: number;
+    current?: number;
+    pages?: number;
+  };
+}
+
   type BaseResponseBoolean_ = {
     code?: number;
     data?: boolean;
@@ -841,4 +896,35 @@ declare namespace API {
     name?: string;
     avatar?: string;
   }
-}
+
+// 在现有的QuestionVO类型中添加选择题相关字段，或者创建新的类型
+type QuizQuestionVO = {
+  id?: string;
+  questionId?: string;
+  questionTitle?: string;
+  choiceOption?: {
+    a: string;
+    b: string;
+    c: string;
+    d?: string;
+  };
+  answerOption?: string;
+  answer?: string;
+  createTime?: string;
+  updateTime?: string;
+};
+
+// 如果需要专门的选择题响应类型
+type BaseResponsePageQuizQuestionVO_ = {
+  code?: number;
+  data?: PageQuizQuestionVO_;
+  message?: string;
+};
+
+type PageQuizQuestionVO_ = {
+  records?: QuizQuestionVO[];
+  total?: number;
+  size?: number;
+  current?: number;
+  pages?: number;
+};

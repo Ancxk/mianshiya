@@ -1,0 +1,10 @@
+.choice-question-admin-page {
+  padding: 24px;
+}
+
+.choice-option {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

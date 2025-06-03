@@ -181,3 +181,105 @@ export async function updateQuestionUsingPost(
     ...(options || {}),
   });
 }
+
+
+
+/** getChoiceQuestionList GET /api/choiceQuestion/list/page */
+export async function getChoiceQuestionListUsingGet(
+  params: {
+    pageNum?: number;
+    pageSize?: number;
+    questionBankId?: number;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<any>('/api/choiceQuestion/list/page', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
+/** saveChoiceQuestionRecord POST /api/choiceQuestion/record/save */
+export async function saveChoiceQuestionRecordUsingPost(
+  body: {
+    id?: number;
+    questionId?: number;
+    userId?: number;
+    choiceOption?: string;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<any>('/api/choiceQuestion/record/save', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+// 添加以下函数到文件末尾
+
+/** addChoiceQuestion POST /api/choiceQuestion/add */
+export async function addChoiceQuestionUsingPost(
+  body: API.ChoiceQuestionAddRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponseLong_>('/api/choiceQuestion/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** updateChoiceQuestion POST /api/choiceQuestion/update */
+export async function updateChoiceQuestionUsingPost(
+  body: API.ChoiceQuestionUpdateRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponseBoolean_>('/api/choiceQuestion/update', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** deleteChoiceQuestion POST /api/choiceQuestion/delete */
+export async function deleteChoiceQuestionUsingPost(
+  body: API.DeleteRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponseBoolean_>('/api/choiceQuestion/delete', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
+/** listChoiceQuestionByPage POST /api/choiceQuestion/list/page */
+export async function listChoiceQuestionByPageUsingPost(
+  body: API.ChoiceQuestionQueryRequest,
+  options?: { [key: string]: any },
+) {
+  return request<API.BaseResponsePageChoiceQuestion_>('/api/choiceQuestion/list/page', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}

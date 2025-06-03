@@ -106,3 +106,37 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `idx_unionId` (`unionId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1920091471781462019 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户';
+
+
+
+
+CREATE TABLE `choice_question` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '答题记录ID',
+  `questionId` bigint NOT NULL COMMENT '题目ID',
+  `questionTitle` varchar(1024)  NOT NULL COMMENT '题目标题',
+  `choiceOption` json NOT NULL COMMENT '选项（JSON对象，key为a/b/c/d）',
+  `answerOption` varchar(10)  NOT NULL COMMENT '答案选择的选项（如a/b/c/d）',
+  `answer` varchar(1024)  NOT NULL COMMENT '答案',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '答题时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_questionId` (`questionId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='选择题表';
+
+
+
+CREATE TABLE `choice_question_log` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '答题记录ID',
+  `questionId` bigint NOT NULL COMMENT '题目ID',
+	`userId` bigint NOT NULL COMMENT '用户id',
+  `selectedOption` varchar(10)  NOT NULL COMMENT '用户选择的选项（如a/b/c/d）',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '答题时间',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_questionId` (`questionId`),
+  KEY `idx_userId` (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='选择题表';
+
+#边界：一个新的测评页面，展示 5 个选择题，让用户做，做完后提交，记录用户的答题记录。
+# 每个用户提交 一页题目后，展示题目答案与对错，并给出用户的得分。
+# 

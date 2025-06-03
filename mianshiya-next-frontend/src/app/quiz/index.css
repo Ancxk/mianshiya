@@ -1,0 +1,118 @@
+.quiz-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 24px;
+}
+
+.quiz-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 32px;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.score-display {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f6ffed;
+  border: 1px solid #b7eb8f;
+  border-radius: 6px;
+}
+
+.question-card {
+  transition: all 0.3s ease;
+}
+
+.question-card.correct {
+  border-color: #52c41a;
+  background-color: #f6ffed;
+}
+
+.question-card.wrong {
+  border-color: #ff4d4f;
+  background-color: #fff2f0;
+}
+
+.question-header {
+  margin-bottom: 16px;
+}
+
+.result-icon {
+  font-size: 20px;
+}
+
+.options-group {
+  width: 100%;
+}
+
+.option-radio {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.option-radio:hover {
+  background-color: #f0f0f0;
+}
+
+.option-radio.correct-option {
+  background-color: #f6ffed;
+  border: 1px solid #52c41a;
+}
+
+.option-radio.wrong-option {
+  background-color: #fff2f0;
+  border: 1px solid #ff4d4f;
+}
+
+.option-text {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.answer-explanation {
+  margin-top: 16px;
+}
+
+.correct-answer {
+  margin-bottom: 12px;
+}
+
+.explanation {
+  background-color: #fafafa;
+  padding: 16px;
+  border-radius: 6px;
+  border-left: 4px solid #1890ff;
+}
+
+.quiz-actions {
+  text-align: center;
+  margin-top: 32px;
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .quiz-page {
+    padding: 16px;
+  }
+  
+  .quiz-container {
+    max-width: 100%;
+  }
+  
+  .option-text {
+    font-size: 14px;
+  }
+}
