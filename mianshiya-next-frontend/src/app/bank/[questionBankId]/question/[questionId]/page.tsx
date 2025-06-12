@@ -8,6 +8,7 @@ import { Content } from "antd/es/layout/layout";
 import QuestionCard from "@/components/QuestionCard";
 import Link from "next/link";
 import "./index.css";
+import CommentsSection from "@/components/CommentsSection";
 
 /**
  * 题库题目详情页
@@ -70,6 +71,7 @@ export default async function BankQuestionPage({ params }) {
         </Sider>
         <Content>
           <QuestionCard question={question} />
+          <CommentsSection questionId={questionId} />
         </Content>
       </Flex>
     </div>

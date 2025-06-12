@@ -896,7 +896,7 @@ declare namespace API {
     name?: string;
     avatar?: string;
   }
-
+}
 // 在现有的QuestionVO类型中添加选择题相关字段，或者创建新的类型
 type QuizQuestionVO = {
   id?: string;

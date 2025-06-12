@@ -110,10 +110,10 @@ const CreateModal: React.FC<Props> = (props) => {
             dataIndex: "answerOption",
             valueType: "select",
             valueEnum: {
-              A: "A",
-              B: "B",
-              C: "C",
-              D: "D",
+              a: "a",
+              b: "b",
+              c: "c",
+              d: "d",
             },
             formItemProps: {
               rules: [{ required: true, message: "请选择正确答案" }],

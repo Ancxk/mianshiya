@@ -148,17 +148,7 @@ const ChoiceQuestionAdminPage: React.FC = () => {
           >
             修改
           </Button>
-          <Popconfirm
-            title="确认删除？"
-            description="你确定要删除这个选择题吗？"
-            onConfirm={() => handleDelete(record)}
-            okText="确认"
-            cancelText="取消"
-          >
-            <Button type="text" danger>
-              删除
-            </Button>
-          </Popconfirm>
+ 
         </Space>
       ),
     },

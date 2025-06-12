@@ -1,5 +1,6 @@
 "use client";
-import { Card } from "antd";
+import { Card, Button } from "antd";
+import { useState } from "react";
 import Title from "antd/es/typography/Title";
 import TagList from "@/components/TagList";
 import MdViewer from "@/components/MdViewer";
@@ -17,9 +18,14 @@ interface Props {
  */
 const QuestionCard = (props: Props) => {
   const { question } = props;
+  const [showAnswer, setShowAnswer] = useState(false);
 
   // 签到
   useAddUserSignInRecord();
+
+  const toggleAnswer = () => {
+    setShowAnswer(!showAnswer);
+  };
 
   return (
     <div className="question-card">
@@ -32,8 +38,23 @@ const QuestionCard = (props: Props) => {
         <MdViewer value={question.content} />
       </Card>
       <div style={{ marginBottom: 16 }} />
-      <Card title="推荐答案">
-        <MdViewer value={question.answer} />
+      <Card 
+        title="推荐答案" 
+        extra={
+          <Button 
+            type="primary" 
+            onClick={toggleAnswer}
+          >
+            {showAnswer ? '隐藏答案' : '查看答案'}
+          </Button>
+        }
+      >
+        {showAnswer && <MdViewer value={question.answer} />}
+        {!showAnswer && (
+          <div style={{ textAlign: 'center', color: '#999', padding: '20px' }}>
+            点击右上角按钮查看推荐答案
+          </div>
+        )}
       </Card>
     </div>
   );
